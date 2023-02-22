@@ -5,8 +5,11 @@
  * Return: 0
  */
 
+
 int main(void)
+
 {
+
 	int i;
 
 	printf("infinite loop incoming : (\n");
