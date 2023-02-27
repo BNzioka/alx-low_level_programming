@@ -13,7 +13,7 @@ void print_array(char *a, int n)
 {
 	int j;
 
-	for (j = 0; t < n; j++)
+	for (j = 0; j < n; j++)
 	{
 		printf("%d", a[j]);
 		if (j != (n - 1))
