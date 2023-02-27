@@ -9,6 +9,7 @@
  */
 
 void print_array(char *a, int n)
+
 {
 	int j;
 
