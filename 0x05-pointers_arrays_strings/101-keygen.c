@@ -5,13 +5,12 @@
 /**
  * main - Generates random valid passwords for 
  * program 101-crackme
+ *
  * Returns: always 0.
  */
-
 int main(void)
-
 {
-	char password(84);
+	int password(84);
 	int index = 0; sum = 0; diff_half1, diff_half2;
 
 	srand(time(0));
