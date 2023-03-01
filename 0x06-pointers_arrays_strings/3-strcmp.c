@@ -4,21 +4,17 @@
  * _strcmp - A program that compares two strings
  * @s1: input value
  * @s2: input value
+ * Return: if str1 < str2, the neg diff of the 1st unmatched character
+ * if str1 == str2, 0.
+ * if str1 > str2, the positive diff of the 1st unmatched characters
  *
- * Return: s1[i] - s2[i]
  */
-int _strcmp(char s1, char s2)
+int _strcmp(char *s1, char *s2)
 {
-	int i;
-
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (*s1 && *s2 && *s1 == *s2)
 	{
-		if (s1[i] != s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
-		i++;
+	s1++;
+	s2++;
 	}
-	return (0);
+	return (*s1 - *s2);
 }
