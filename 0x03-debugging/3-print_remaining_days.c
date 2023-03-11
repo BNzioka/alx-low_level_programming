@@ -35,3 +35,19 @@ void print_remaining_days(int month, int day, int year)
 	}
 	}
 }
+
+/**
+ * main - tests the print_remaining_days function
+ * Return: 0
+ */
+
+int main(void)
+{
+	print_remaining_days(2, 29, 2020);
+	print_remaining_days(3, 1, 2020);
+	print_remaining_days(12, 31, 2020);
+	print_remaining_days(2, 29, 2021);
+	print_remaining_days(6, 15, 2021);
+
+	return (0);
+}
