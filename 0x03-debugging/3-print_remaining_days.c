@@ -1,46 +1,35 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
+
+int convert_day(int month, int day);
 
 /**
- * print_remaining_days - takes a date and prints how many days are
- * left in the year, taking leap years into account
- * @month: month in number format
- * @day: day of month
- * @year: year
- *
- * Description: This function takes a date and determines how many days
- * are left in the year, taking leap years into account.
- *
- * Return: void
+ * main - takes a date and prints how many days are left in the year, taking
+ * leap years into account
+ * Return: 0
  */
-
-void print_remaining_days(int month, int day, int year)
+int main(void)
 {
-	if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
-	{
-	if (month > 2)
-		day++;
-	printf("Day of the year: %d\n", 31 + 29 + day);
-	printf("Remaining days: %d\n", 366 - (31 + 29 + day));
-	}
-	else
-	{
-	printf("Day of the year: %d\n", calculate_day_of_year(month, day));
-	printf("Remaining days: %d\n", 365 - calculate_day_of_year(month, day));
-	}
+	int month = 4;
+	int day = 10;
+	int year = 1997;
+
+	printf("Date: %02d/%02d/%04d\n", month, day, year);
+
+	print_remaining_days(month, day, year);
+
+	return (0);
 }
 
 /**
- * calculate_day_of_year - calculates the day of the year
+ * convert_day - converts day of month to day of year, without considering
+ * leap years
  * @month: month in number format
  * @day: day of month
  *
- * Description: This function calculates the day of the year.
- *
  * Return: day of year
  */
-
-int calculate_day_of_year(int month, int day)
+int convert_day(int month, int day)
 {
 	int i, day_of_year = 0;
 	int days_in_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
