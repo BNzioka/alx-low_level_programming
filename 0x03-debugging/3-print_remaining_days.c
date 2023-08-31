@@ -93,25 +93,21 @@ int calculate_day_of_year(int month, int day, int year)
  */
 void print_remaining_days(int month, int day, int year)
 {
-	int total_days = 0, remaining_days = 0;
+	int leap = 0;
 
-	total_days = calculate_day_of_year(month, day, year);
+	if ((year % 4 == 0 && 100 != 0) || (year % 400 == 0))
+		leap = 1;
 
-	if (total_days == 366)
+	if (leap && month >= 3)
+		day++;
+
+	if (month == 2 && day == 60 && !leap)
 	{
-		remaining_days = 365;
+		printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
 	}
 	else
 	{
-		remaining_days = 366 - total_days;
-	}
-
-	if (remaining_days == 1)
-	{
-		printf("Day %d of %d: %d day remaining\n", total_days, year, remaining_days);
-	}
-	else
-	{
-		printf("Day %d of %d: %d days remaining\n", total_days, year, remaining_days);
+		printf("Day of the year: %d\n", day);
+		printf("Remaining days: %d\n", (leap ? 366 : 365) - day);
 	}
 }
